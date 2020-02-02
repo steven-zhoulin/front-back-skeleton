@@ -21,6 +21,13 @@
                     {id: 2, content: '123123'},
                 ],
             }
+        },
+        created() {
+            const _this = this;
+            axios.get('http://127.0.0.1:8181/api/demo/notify/list').then(function (res) {
+                console.log(res.data);
+                _this.notifies = res.data;
+            })
         }
     }
 </script>
