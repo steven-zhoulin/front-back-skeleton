@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'idea'
+
+group = 'com.topsail'
+version = '1.0.0'
+sourceCompatibility = '1.8'
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.1.0'
+    implementation 'com.baomidou:mybatis-plus:3.1.0'
+
+    implementation 'commons-codec:commons-codec:1.13'
+    implementation "org.apache.commons:commons-lang3:3.8.1"
+    implementation "org.apache.commons:commons-text:1.8"
+    implementation "commons-io:commons-io:2.6"
+
+    implementation 'io.springfox:springfox-swagger2:2.9.2'
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1'
+
+    // 运行期有效
+    runtimeOnly 'mysql:mysql-connector-java'
+
+
+    // 编译期有效，不参与打包
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.10'
+    testCompileOnly 'org.projectlombok:lombok:1.18.10'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'com.baomidou:mybatis-plus-generator:3.1.0'
+    testImplementation 'org.freemarker:freemarker:2.3.29'
+}
