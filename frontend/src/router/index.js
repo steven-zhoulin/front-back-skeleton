@@ -1,99 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import BookManager from "../views/BookManager";
-import BookAdd from "../views/BookAdd";
+import CityManager from "../views/CityManager";
+import CityAdd from "../views/CityAdd";
 import PageThree from "../views/PageThree";
 import PageFour from "../views/PageFour";
-import Index from "../views/Index";
+import Layout from "../views/Layout";
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        name: '图书管理',
-        component: Index,
-        redirect: '/bookManager',
+        name: '城市规划',
+        component: Layout,
+        redirect: '/cityManager',
         children: [
             {
-                path: '/bookManager',
-                name: '图书管理',
-                component: BookManager
+                path: '/cityManager',
+                name: '城市清单',
+                component: CityManager
             },
             {
-                path: '/bookAdd',
-                name: '图书新增',
-                component: BookAdd
+                path: '/cityAdd',
+                name: '城市新增',
+                component: CityAdd
             },
-        ]
-    },
-    {
-        path: '/nav',
-        name: '导航二',
-        component: Index,
-        children: [
-            {
-                path: '/pageThree',
-                name: '页面三',
-                component: PageThree
-            },
-            {
-                path: '/pageFour',
-                name: '页面四',
-                component: PageFour
-            }
-        ]
-    },
-    {
-        path: '/nav',
-        name: '导航二',
-        component: Index,
-        children: [
-            {
-                path: '/pageThree',
-                name: '页面三',
-                component: PageThree
-            },
-            {
-                path: '/pageFour',
-                name: '页面四',
-                component: PageFour
-            }
-        ]
-    },
-    {
-        path: '/nav',
-        name: '导航二',
-        component: Index,
-        children: [
-            {
-                path: '/pageThree',
-                name: '页面三',
-                component: PageThree
-            },
-            {
-                path: '/pageFour',
-                name: '页面四',
-                component: PageFour
-            }
-        ]
-    },
-    {
-        path: '/nav',
-        name: '导航二',
-        component: Index,
-        children: [
-            {
-                path: '/pageThree',
-                name: '页面三',
-                component: PageThree
-            },
-            {
-                path: '/pageFour',
-                name: '页面四',
-                component: PageFour
-            }
         ]
     },
 ]

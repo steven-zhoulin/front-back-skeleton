@@ -7,14 +7,14 @@
 <!--                        <div align="center" style="color: aliceblue;"><i class="el-icon-star-on"></i> Topsail</div>-->
 <!--                    </el-header>-->
                     <el-menu router
-                             default-active="2"
+                             default-active="1"
                              class="el-menu-vertical-demo"
                              @open="handleOpen"
                              @close="handleClose"
                              background-color="#545c64"
                              text-color="#fff"
                              active-text-color="#ffd04b">
-                        <el-submenu v-for="(item, index) in $router.options.routes" :index="index">
+                        <el-submenu v-for="(item, index) in $router.options.routes" :index="'index'">
                             <template slot="title">
                                 <i class="el-icon-location"></i>
                                 {{item.name}}
@@ -50,17 +50,19 @@
 
 <script>
     export default {
-        name: "Index"
+        name: "Index",
+        methods: {
+            handleOpen() {
+
+            },
+            handleClose() {
+
+            },
+        }
     }
 </script>
 
 <style scoped>
-
-    html, body, #app, .homeBox .el-container {
-        margin: 0px;
-        padding: 0px;
-        height: 100%;
-    }
 
     .el-header, .el-footer {
         background-color: #B3C0D1;
@@ -76,12 +78,12 @@
         line-height: 200px;
     }
 
-    .el-main {
-        background-color: #E9EEF3;
-        color: #333;
-        text-align: center;
-        line-height: 160px;
-    }
+    /*.el-main {*/
+    /*    background-color: #E9EEF3;*/
+    /*    color: #333;*/
+    /*    text-align: center;*/
+    /*    line-height: 160px;*/
+    /*}*/
 
     body > .el-container {
         margin-bottom: 40px;
@@ -95,14 +97,5 @@
     .el-container:nth-child(7) .el-aside {
         line-height: 320px;
     }
-
-    /*.el-scrollbar {*/
-    /*    height: 100%;*/
-    /*}*/
-    /*.el-scrollbar__wrap {*/
-    /*    overflow: scroll;*/
-    /*    width: 105%;*/
-    /*    height: 120%;*/
-    /*}*/
 
 </style>

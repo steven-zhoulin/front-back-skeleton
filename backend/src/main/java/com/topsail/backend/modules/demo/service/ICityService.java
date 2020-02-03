@@ -1,7 +1,7 @@
 package com.topsail.backend.modules.demo.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.topsail.backend.modules.demo.entity.po.Notify;
+import com.topsail.backend.modules.demo.entity.po.City;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.topsail.backend.modules.demo.entity.po.Notify;
  * @author Steven
  * @since 2019-12-19
  */
-public interface INotifyService extends IService<Notify> {
+public interface ICityService extends IService<City> {
 
 }

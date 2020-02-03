@@ -23,15 +23,20 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("sys_notify")
-public class Notify {
+@TableName("city")
+public class City {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @TableField("content")
-    private String content;
+    @TableField("name")
+    private String name;
 
+    @TableField("city_id")
+    private String cityId;
+
+    @TableField("province_id")
+    private String provinceId;
 }

@@ -1,9 +1,9 @@
 package com.topsail.backend.modules.demo.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.topsail.backend.modules.demo.entity.po.Notify;
-import com.topsail.backend.modules.demo.mapper.NotifyMapper;
-import com.topsail.backend.modules.demo.service.INotifyService;
+import com.topsail.backend.modules.demo.entity.po.City;
+import com.topsail.backend.modules.demo.mapper.CityMapper;
+import com.topsail.backend.modules.demo.service.ICityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +18,9 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> implements INotifyService {
+public class CityServiceImpl extends ServiceImpl<CityMapper, City> implements ICityService {
 
     @Autowired
-    private NotifyMapper notifyMapper;
+    private CityMapper cityMapper;
 
 }
