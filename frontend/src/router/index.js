@@ -1,32 +1,107 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
+import BookManager from "../views/BookManager";
+import BookAdd from "../views/BookAdd";
+import PageThree from "../views/PageThree";
+import PageFour from "../views/PageFour";
+import Index from "../views/Index";
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/notify',
-    name: 'notify',
-    component: () => import('../views/Notify')
-  }
+    {
+        path: '/',
+        name: '图书管理',
+        component: Index,
+        redirect: '/bookManager',
+        children: [
+            {
+                path: '/bookManager',
+                name: '图书管理',
+                component: BookManager
+            },
+            {
+                path: '/bookAdd',
+                name: '图书新增',
+                component: BookAdd
+            },
+        ]
+    },
+    {
+        path: '/nav',
+        name: '导航二',
+        component: Index,
+        children: [
+            {
+                path: '/pageThree',
+                name: '页面三',
+                component: PageThree
+            },
+            {
+                path: '/pageFour',
+                name: '页面四',
+                component: PageFour
+            }
+        ]
+    },
+    {
+        path: '/nav',
+        name: '导航二',
+        component: Index,
+        children: [
+            {
+                path: '/pageThree',
+                name: '页面三',
+                component: PageThree
+            },
+            {
+                path: '/pageFour',
+                name: '页面四',
+                component: PageFour
+            }
+        ]
+    },
+    {
+        path: '/nav',
+        name: '导航二',
+        component: Index,
+        children: [
+            {
+                path: '/pageThree',
+                name: '页面三',
+                component: PageThree
+            },
+            {
+                path: '/pageFour',
+                name: '页面四',
+                component: PageFour
+            }
+        ]
+    },
+    {
+        path: '/nav',
+        name: '导航二',
+        component: Index,
+        children: [
+            {
+                path: '/pageThree',
+                name: '页面三',
+                component: PageThree
+            },
+            {
+                path: '/pageFour',
+                name: '页面四',
+                component: PageFour
+            }
+        ]
+    },
 ]
 
 const router = new VueRouter({
-  routes
+    mode: 'history',
+    base: process.env.BABEL_ENV,
+    routes
 })
 
 export default router
