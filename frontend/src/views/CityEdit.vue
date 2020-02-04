@@ -1,10 +1,12 @@
 <template>
     <el-card class="box-card">
         <div slot="header" class="clearfix">
-            <span>新增</span>
+            <span>修改</span>
         </div>
         <el-form :model="cityForm" :rules="rules" ref="cityForm" label-width="100px" class="demo-cityForm">
-
+            <el-form-item label="城市编号" prop="id">
+                <el-input readonly v-model="cityForm.id"></el-input>
+            </el-form-item>
             <el-form-item label="城市名称" prop="name">
                 <el-input v-model="cityForm.name"></el-input>
             </el-form-item>
@@ -16,8 +18,7 @@
             </el-form-item>
 
             <el-form-item>
-                <el-button type="primary" @click="submitForm('cityForm')">新增</el-button>
-                <el-button @click="resetForm('cityForm')">重置</el-button>
+                <el-button type="primary" @click="submitForm('cityForm')">修改</el-button>
             </el-form-item>
         </el-form>
     </el-card>
@@ -25,10 +26,11 @@
 
 <script>
     export default {
-        name: "CityAdd",
+        name: "CityEdit",
         data() {
             return {
                 cityForm: {
+                    id: '',
                     name: '',
                     cityId: '',
                     provinceId: ''
@@ -36,7 +38,7 @@
                 rules: {
                     name: [
                         {required: true, message: '请输入城市名称', trigger: 'blur'},
-                        {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
+                        {min: 1, max: 10, message: '长度在 1 到 10 个字符', trigger: 'blur'}
                     ],
                     cityId: [
                         {required: true, message: '请输入城市编号', trigger: 'blur'},
@@ -55,11 +57,11 @@
                     if (valid) {
                         console.log(this.cityForm);
                         const _this = this;
-                        axios.post('/api/demo/city/add', this.cityForm).then(res => {
+                        axios.post('/api/demo/city/edit', this.cityForm).then(res => {
                             console.log(res);
                             if (200 == res.status) {
                                 _this.$message({
-                                    message: '添加成功！',
+                                    message: '修改成功！',
                                     type: 'success'
                                 });
 
@@ -73,8 +75,16 @@
                     }
                 });
             },
-            resetForm(formName) {
-                this.$refs[formName].resetFields();
+        },
+        created() {
+            if (this.$route.query.id) {
+                const _this = this;
+                axios.get('/api/demo/city/getOne/' + this.$route.query.id).then(res => {
+                    _this.cityForm.id = res.data.id
+                    _this.cityForm.name = res.data.name
+                    _this.cityForm.cityId = parseInt(res.data.cityId)
+                    _this.cityForm.provinceId = parseInt(res.data.provinceId)
+                })
             }
         }
 

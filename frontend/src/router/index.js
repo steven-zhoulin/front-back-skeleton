@@ -3,8 +3,7 @@ import VueRouter from 'vue-router'
 
 import CityManager from "../views/CityManager";
 import CityAdd from "../views/CityAdd";
-import PageThree from "../views/PageThree";
-import PageFour from "../views/PageFour";
+import CityEdit from "../views/CityEdit";
 import Layout from "../views/Layout";
 
 Vue.use(VueRouter)
@@ -25,6 +24,11 @@ const routes = [
                 path: '/cityAdd',
                 name: '城市新增',
                 component: CityAdd
+            },
+            {
+                path: '/cityEdit',
+                name: '城市修改',
+                component: CityEdit
             },
         ]
     },
