@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.topsail.backend.modules.demo.entity.dto.CityDTO;
 import com.topsail.backend.modules.demo.entity.po.City;
 import com.topsail.backend.modules.demo.service.ICityService;
+import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,22 @@ public class CityController {
     public void add(@RequestBody City city) {
         log.info("city: {}", city);
         cityService.save(city);
+    }
+
+    @GetMapping("getOne/{id}")
+    public City getOne(@PathVariable("id") Integer id) {
+        return cityService.getById(id);
+    }
+
+    @PostMapping("edit")
+    public void edit(@RequestBody City city) {
+        log.info("{}", city);
+        cityService.updateById(city);
+    }
+
+    @GetMapping("delete/{id}")
+    public void delete(@PathVariable("id")Integer id) {
+        cityService.removeById(id);
     }
 
 }
