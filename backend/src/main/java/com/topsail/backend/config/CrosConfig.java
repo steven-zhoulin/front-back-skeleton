@@ -7,10 +7,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * 跨域配置
  *
+ * 暂时屏蔽，由前端负责解决跨域问题。
+ *
  * @author Steven
  * @date 2020-02-02
  */
-@Configuration
+//@Configuration
 public class CrosConfig implements WebMvcConfigurer {
 
     @Override
