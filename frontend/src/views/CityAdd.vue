@@ -52,11 +52,18 @@
                     if (valid) {
                         console.log(this.cityForm);
                         const _this = this;
-                        axios.post('http://127.0.0.1:8181/api/demo/city/add/').then(function (res) {
-                            _this.total = res.data.total;
-                            _this.tableData = res.data.records;
+                        axios.post('/api/demo/city/add', this.cityForm).then(res => {
+                            console.log(res);
+                            if (200 == res.status) {
+                                _this.$message({
+                                    message: '添加成功！',
+                                    type: 'success'
+                                });
+
+                                // 跳转到列表页面
+                                _this.$router.push('/cityManager');
+                            }
                         })
-                        alert('submit!');
                     } else {
                         console.log('error submit!!');
                         return false;

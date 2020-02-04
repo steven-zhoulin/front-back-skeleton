@@ -2,13 +2,11 @@ package com.topsail.backend.modules.demo.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.topsail.backend.modules.demo.entity.dto.CityDTO;
+import com.topsail.backend.modules.demo.entity.po.City;
 import com.topsail.backend.modules.demo.service.ICityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -29,6 +27,12 @@ public class CityController {
     @GetMapping("list/{current}/{size}")
     public IPage<CityDTO> list(@PathVariable("current") int current, @PathVariable("size") int size) {
         return cityService.list(current, size);
+    }
+
+    @PostMapping("add")
+    public void add(@RequestBody City city) {
+        log.info("city: {}", city);
+        cityService.save(city);
     }
 
 }

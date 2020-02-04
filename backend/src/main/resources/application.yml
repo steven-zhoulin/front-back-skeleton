@@ -4,9 +4,10 @@ server:
 spring:
 
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://39.106.228.124:3306/sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
-    username: sys
-    password: ENC(kOszr+P7A1igBzGeAY/bpx0ZLffsMGc/)
-    hikari:
-      connection-test-query: SELECT 1
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000
+    username: test
+    password:
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+

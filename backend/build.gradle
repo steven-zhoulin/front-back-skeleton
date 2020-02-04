@@ -32,8 +32,8 @@ dependencies {
     implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1'
 
     // 运行期有效
-    runtimeOnly 'mysql:mysql-connector-java'
-
+    //runtimeOnly 'mysql:mysql-connector-java'
+    runtimeOnly 'com.h2database:h2'
 
     // 编译期有效，不参与打包
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
